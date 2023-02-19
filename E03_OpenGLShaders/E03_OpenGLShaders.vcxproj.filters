@@ -1,33 +1,36 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="Alberto.cpp">
+    <ClCompile Include="AppClass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ShaderCompiler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Alberto.h">
+    <ClInclude Include="AppClass.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Main.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="queue.h">
+    <ClInclude Include="ShaderCompiler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{9c756550-e698-4198-8c41-b2785b9a4383}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{ef27caa7-d270-4105-9105-397d460c4f20}</UniqueIdentifier>
+      <UniqueIdentifier>{0a720a23-3698-46cb-bb13-fb726962331d}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{332c8f59-1ddd-4a95-bba0-b00ce32884d2}</UniqueIdentifier>
+      <UniqueIdentifier>{7c25e8dc-8672-4d4f-b284-e7e8cd1cfbdf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{0f04eb91-d6f9-4dfe-acd9-2ae1712c18b1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

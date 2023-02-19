@@ -206,6 +206,16 @@ public:
 	*/
 	void GenerateSphere(float a_fRadius, int a_nSubdivisions, vector3 a_v3Color = C_WHITE);
 #pragma endregion
+private:
+	/*
+	USAGE: Generates a Circle of Vertices
+	ARGUMENTS:
+	-	int a_nSubdivisions -> Number of divisions, minimum of 3
+	-	float a_fRadius -> Radius of the circle
+	-	float a_fVerticalOffset -> Offset in the Z coord for the circle
+	OUTPUT: Vector object containing the vector3 point of the circle in counterclockwise order
+	*/
+	std::vector<vector3> GenerateCircleVertices(int a_nSubdivisions, float a_fRadius, float a_fVerticalOffset);
 };
 
 #endif //__MYMESH_H_

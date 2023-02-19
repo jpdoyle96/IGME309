@@ -18,7 +18,7 @@ void Application::InitVariables(void)
 	m_pTube = new MyMesh();
 	m_pTube->GenerateTube(0.5f, 0.35f, 1.0f, 7, C_GREEN);
 	m_pSphere = new MyMesh();
-	m_pSphere->GenerateSphere(0.5f, 3, C_BLUE);
+	m_pSphere->GenerateSphere(0.5f, 7, C_BLUE);
 	m_pTorus = new MyMesh();
 	m_pTorus->GenerateTorus(0.5f, 0.30f, 7, 7, C_VIOLET);
 
@@ -31,19 +31,19 @@ void Application::InitVariables(void)
 		m_pMesh->GenerateCube(2.0f, C_CYAN);
 		break;
 	case 1:
-		m_pMesh->GenerateCone(1.0f, 2.0f, 10, C_CYAN);
+		m_pMesh->GenerateCone(1.0f, 2.0f, 20, C_CYAN);
 		break;
 	case 2:
-		m_pMesh->GenerateCylinder(1.0f, 2.0f, 10, C_CYAN);
+		m_pMesh->GenerateCylinder(1.0f, 2.0f, 20, C_CYAN);
 		break;
 	case 3:
-		m_pMesh->GenerateTube(1.0f, 0.7f, 1.0f, 10, C_CYAN);
+		m_pMesh->GenerateTube(1.0f, 0.7f, 1.0f, 20, C_CYAN);
 		break;
 	case 4:
-		m_pMesh->GenerateSphere(1.0f, 5, C_CYAN);
+		m_pMesh->GenerateSphere(1.0f, 20, C_CYAN);
 		break;
 	case 5:
-		m_pMesh->GenerateTorus(1.0f, 0.6f, 10, 10, C_CYAN);
+		m_pMesh->GenerateTorus(1.0f, 0.6f, 20, 20, C_CYAN);
 		break;
 	}
 }
