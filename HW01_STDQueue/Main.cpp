@@ -1,87 +1,68 @@
-#include "Main.h"
-template <typename T> 
-void Print(std::deque<T> a_queue)
+#include "queue.h"
+#include <string>
+#define _CRTDBG_MAP_ALLOC
+#include <crtdbg.h>
+
+void TestFunction()
 {
-	std::cout << "Begining of queue......." << std::endl;
-	uint count = a_queue.size();
-	for (uint i = 0; i < count; ++i)
-	{
-		std::cout << a_queue[i];
-		std::cout << std::endl;
-	}
-	std::cout << "End of queue............" << std::endl;
+	// Define queue of ints
+	queue<int> myIntQueue;
+	// Check the print with empty queue
+	myIntQueue.Print();
+	// Push some elements (out of order)
+	myIntQueue.Push(5);
+	std::cout << "	just pushed +++++" << std::endl;
+	myIntQueue.Push(3);
+	std::cout << "	just pushed +++++" << std::endl;
+	myIntQueue.Push(12);
+	std::cout << "	just pushed +++++" << std::endl;
+	// Check with print 
+	myIntQueue.Print();
+	// Pop and return an element
+	std::cout << "	" << myIntQueue.Pop() << "	just popped -----" << std::endl;
+	myIntQueue.Print();
+	// Push a few more elements
+	myIntQueue.Push(6);
+	std::cout << "	just pushed +++++" << std::endl;
+	myIntQueue.Push(9);
+	std::cout << "	just pushed +++++" << std::endl;
+	myIntQueue.Push(12);
+	std::cout << "	just pushed +++++" << std::endl;
+	myIntQueue.Print();
+	std::cout << "Number of elements in queue: " << myIntQueue.GetSize() << std::endl;
+	// Copy Constuctor
+	queue<int> copyConstMyIntQueue(myIntQueue);
+	std::cout << "Copy ...." << std::endl;
+	copyConstMyIntQueue.Print();
+	std::cout << "Number of elements in queue: " << myIntQueue.GetSize() << std::endl;
+	// Pop some elements in copy
+	std::cout << "Popping in copy ...." << std::endl;
+	std::cout << "	" << copyConstMyIntQueue.Pop() << "	just popped -----" << std::endl;
+	std::cout << "	" << copyConstMyIntQueue.Pop() << "	just popped -----" << std::endl;
+	std::cout << "	" << copyConstMyIntQueue.Pop() << "	just popped -----" << std::endl;
+	std::cout << "Printing from copy queue" << std::endl;
+	copyConstMyIntQueue.Print();
+	// Copying back over to main int queue via assignment
+	std::cout << "Copying back to main queue via assignment" << std::endl;
+	myIntQueue = copyConstMyIntQueue;
+	std::cout << "Printing from main queue" << std::endl;
+	myIntQueue.Print();
+	// Loop to empty queue
+
 }
 
 int main(void)
 {
-	std::deque<int> myQueue;
-	//Push elements
-	myQueue.push_back(0);
-	std::cout << "	just pushed +++++" << std::endl;
-	myQueue.push_back(1);
-	std::cout << "	just pushed +++++" << std::endl;
-	myQueue.push_back(2);
-	std::cout << "	just pushed +++++" << std::endl;
-	//Print queue
-	Print<int>(myQueue);
-	//pop an element
-	myQueue.pop_front();
-	std::cout << "		just popped -----" << std::endl;
-	//add elements
-	myQueue.push_back(3);
-	std::cout << "	just pushed +++++" << std::endl;
-	myQueue.push_back(4);
-	std::cout << "	just pushed +++++" << std::endl;
-	myQueue.push_back(5);
-	std::cout << "	just pushed +++++" << std::endl;
-	//Print queue
-	Print<int>(myQueue);
-	myQueue.pop_front();
-	std::cout << "		just popped -----" << std::endl;
-	myQueue.pop_front();
-	std::cout << "		just popped -----" << std::endl;
-	//Print queue
-	Print<int>(myQueue);
-	//clear queue
-	uint count = myQueue.size();
-	for (uint i = 0; i < count; ++i)
+	TestFunction();
+
+	if (_CrtDumpMemoryLeaks() == 1)
 	{
-		myQueue.pop_front();
-		std::cout << "		just popped -----" << std::endl;
+		std::cout << "\nThere are still memory leaks!" << std::endl;
 	}
-	//Print queue
-	Print<int>(myQueue);
-
-	//Complex Data usage
-	std::deque<Foo> myFooQueue;
-	for (uint i = 0; i < 10; ++i)
+	else
 	{
-		Foo foo(i);
-		myFooQueue.push_back(foo);
-		std::cout << "	just pushed +++++" << std::endl;
-		if (i % 2 == 0)
-		{
-			myFooQueue.pop_front();
-			std::cout << "		just popped -----" << std::endl;
-		}
+		std::cout << "\nThere are no memory leaks!" << std::endl;
 	}
-
-	std::deque<AlbertoClass> myAlbertoQueue;
-	for (uint i = 30; i < 40; ++i)
-	{
-		AlbertoClass alberto(i);
-		myAlbertoQueue.push_back(alberto);
-		std::cout << "	just pushed +++++" << std::endl;
-	}
-	std::cout << "	Content" << std::endl;
-	for (uint i = 0; i < 10; ++i)
-	{
-		std::cout << myAlbertoQueue[i] << std::endl;
-	}
-
-	std::cout << "Press Enter to finish." << std::endl;
-
-
-	
+	std::cout << "Press Enter to exit ... " << std::endl;
 	getchar();
 }
