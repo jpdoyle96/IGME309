@@ -6,10 +6,14 @@ void MyCamera::SetPositionTargetAndUpward(vector3 a_v3Position, vector3 a_v3Targ
 	//TODO:: replace the super call with your functionality
 	//Tip: Changing any positional vector forces you to calculate new directional ones
 	// super::SetPositionTargetAndUpward(a_v3Position, a_v3Target, a_v3Upward);
+
+	// Set up vectors from the given parameters
 	m_v3Position = a_v3Position;
 	m_v3Target = a_v3Target;
 	m_v3Upward = a_v3Upward;
+	// Get the forward vector as an inverted normalization of the position vector
 	m_v3Forward = -1 * glm::normalize(a_v3Position);
+	// Get the right vector as a cross product of the forward and upward vectors
 	m_v3Rightward = glm::cross(m_v3Forward, m_v3Upward);
 
 	//After changing any vectors you need to recalculate the MyCamera View matrix.
@@ -19,16 +23,19 @@ void MyCamera::SetPositionTargetAndUpward(vector3 a_v3Position, vector3 a_v3Targ
 }
 void MyCamera::MoveForward(float a_fDistance)
 {
+	// Move the camera forward, updating the target and position
 	m_v3Position += a_fDistance * m_v3Forward;
 	m_v3Target += a_fDistance * m_v3Forward;
 }
 void MyCamera::MoveVertical(float a_fDistance)
 {
+	// Move the camera vertically, updating the target and position
 	m_v3Position += a_fDistance * m_v3Upward;
 	m_v3Target += a_fDistance * m_v3Upward;
 }
 void MyCamera::MoveSideways(float a_fDistance)
 {
+	// Move the camera sideways, updating the target and position
 	m_v3Position += a_fDistance * m_v3Rightward;
 	m_v3Target += a_fDistance * m_v3Rightward;
 }
