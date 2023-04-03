@@ -26,6 +26,7 @@ void MyCamera::MoveForward(float a_fDistance)
 	// Move the camera forward, updating the target and position
 	m_v3Position += a_fDistance * m_v3Forward;
 	m_v3Target += a_fDistance * m_v3Forward;
+
 }
 void MyCamera::MoveVertical(float a_fDistance)
 {
